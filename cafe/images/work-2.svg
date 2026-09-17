@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- 크림 바탕과 나무 판 -->
+  <rect width="800" height="600" fill="#F9F7F5"/>
+  <rect y="440" width="800" height="160" fill="#E9E3DD"/>
+  <!-- 큰 접시 -->
+  <ellipse cx="300" cy="300" rx="215" ry="155" fill="#D2CBC6"/>
+  <ellipse cx="300" cy="300" rx="178" ry="124" fill="#FFFFFF"/>
+  <!-- 중간 접시 -->
+  <ellipse cx="540" cy="330" rx="175" ry="126" fill="#E9E3DD"/>
+  <ellipse cx="540" cy="330" rx="142" ry="100" fill="#F9F7F5"/>
+  <!-- 작은 접시 -->
+  <ellipse cx="440" cy="430" rx="120" ry="82" fill="#5D4432"/>
+  <ellipse cx="440" cy="430" rx="92" ry="60" fill="#EFECEB"/>
+</svg>
