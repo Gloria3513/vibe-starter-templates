@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;800&display=swap">
+  <title>최미정 | 작은 가게 로고 디자이너</title>
+  <meta name="description" content="작은 가게의 얼굴이 되는 로고를 만듭니다. 로고 제작, 간판·명함 세트, 디자인 이야기를 모았습니다.">
+  <meta property="og:title" content="최미정 | 작은 가게 로고 디자이너">
+  <meta property="og:description" content="작은 가게의 얼굴이 되는 로고를 만듭니다. 로고 제작, 간판·명함 세트, 디자인 이야기를 모았습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og.jpg">
+  <!-- 카톡·문자로 주소를 보낼 때 뜨는 그림입니다. images/og.jpg 를 가로 1200 × 세로 630 그림으로 바꾸세요 -->
+  <!-- 주소가 생기면 위 content 를 https://내주소.vercel.app/images/og.jpg 처럼 전체 주소로 바꾸세요 -->
+  <!-- 주소가 생기면 넣으세요: <link rel="canonical" href="https://내주소.vercel.app/"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 아이콘 모음 (화면에 보이지 않습니다) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-visit" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"/><path d="M5 9.8V21h14V9.8"/><path d="M10 21v-5h4v5"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-7"/><path d="M12 14c0-4.4-3-7-8-7 0 4.6 3 7 8 7Z"/><path d="M12 12c0-3.6 2.5-6 7-6 0 3.8-2.5 6-7 6Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2Z"/><path d="M12 6v14"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.7 2.4 4.2 5.6 4.2 9s-1.5 6.6-4.2 9c-2.7-2.4-4.2-5.6-4.2-9S9.3 5.4 12 3Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.9 19.9 0 0 1-8.6-3.1 19.6 19.6 0 0 1-6-6A19.9 19.9 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.8 12.8 0 0 0 .7 2.8 2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4 12.8 12.8 0 0 0 2.8.7 2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="m10.2 9.2 4.8 2.8-4.8 2.8Z"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.4-4.4A2 2 0 0 1 7.8 2h8.4a2 2 0 0 1 1.4.6L22 7"/><path d="M4 7v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7"/><path d="M2 7h20"/><path d="M9 21v-6h6v6"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  </svg>
+
+  <!-- ===== 첫 화면 시작 (안 쓰면 이 줄부터 「첫 화면 끝」까지 지우세요) ===== -->
+  <header class="hero wrap">
+    <div class="avatar" aria-hidden="true">최</div>
+    <!-- 사진이 있으면 위 줄을 지우고: <img class="avatar" src="images/내사진.jpg" alt="최미정 사진"> -->
+    <h1 class="hero-name">최미정</h1>
+    <p class="hero-tagline">작은 가게 얼굴이 되는 로고를 그립니다</p>
+    <p class="hero-greeting">인쇄소에서 십오 년 넘게 전단지와 간판을 다루며 가게 이름 글씨를 그리기 시작했습니다. 한 가게의 처음부터 끝까지 함께 정하는 로고를 천천히 만들어 드립니다.</p>
+    <!-- 버튼 주소: 카카오톡 오픈채팅방 → 공유 → 링크 복사 후 href 따옴표 안에 붙여 넣으세요 -->
+    <a class="button" href="https://open.kakao.com/o/내오픈채팅주소">로고 상담하기</a>
+  </header>
+  <!-- ===== 첫 화면 끝 ===== -->
+
+  <!-- ===== 할 수 있는 일 시작 (안 쓰면 이 줄부터 「할 수 있는 일 끝」까지 지우세요) ===== -->
+  <section class="skills wrap">
+    <h2>할 수 있는 일</h2>
+    <ul class="cards">
+      <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+      <li class="card">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-pen"></use></svg>
+        <h3>가게 로고 제작</h3>
+        <p>가게 이름과 손님들이 생각하는 모습을 듣고 로고 세 가지를 그려 보여 드립니다.</p>
+      </li>
+      <li class="card">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-store"></use></svg>
+        <h3>간판·명함 세트</h3>
+        <p>정한 로고로 간판, 명함, 영수증까지 같은 모양으로 만들어 드립니다.</p>
+      </li>
+      <li class="card">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-file"></use></svg>
+        <h3>쓰는 방법 정리</h3>
+        <p>로고 파일을 크기별로 나누어 어디에 어떻게 쓰는지 한 장으로 정리해 드립니다.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ===== 할 수 있는 일 끝 ===== -->
+
+  <!-- ===== 경력 시작 (안 쓰면 이 줄부터 「경력 끝」까지 지우세요) ===== -->
+  <section class="career wrap">
+    <h2>경력</h2>
+    <ol class="career-list">
+      <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+      <li>
+        <p class="career-period">2018 – 지금</p>
+        <h3 class="career-title">1인 디자인 작업실 운영</h3>
+        <p class="career-place">동네 상가 2층</p>
+        <p class="career-desc">작은 가게 로고와 간판 디자인</p>
+      </li>
+      <li>
+        <p class="career-period">2002 – 2017</p>
+        <h3 class="career-title">인쇄소 디자인 직원</h3>
+        <p class="career-place">동네 인쇄소</p>
+        <p class="career-desc">전단지·명함 조판과 손님 응대</p>
+      </li>
+      <li>
+        <p class="career-period">2000</p>
+        <h3 class="career-title">디자인 공부 시작</h3>
+      </li>
+    </ol>
+  </section>
+  <!-- ===== 경력 끝 ===== -->
+
+  <!-- ===== 작업물 시작 (안 쓰면 이 줄부터 「작업물 끝」까지 지우세요) ===== -->
+  <section class="works wrap">
+    <h2>작업물</h2>
+    <div class="work-grid">
+      <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+      <article class="work">
+        <img src="images/work-1.svg" alt="동네 빵집 로고" width="800" height="600" loading="lazy">
+        <h3>동네 빵집 로고</h3>
+        <p>할머니가 만든 빵이라는 뜻을 그림으로 담은 로고입니다.</p>
+      </article>
+      <article class="work">
+        <img src="images/work-2.svg" alt="이발소 간판 세트" width="800" height="600" loading="lazy">
+        <h3>이발소 간판 세트</h3>
+        <p>로고와 가격표, 명함을 한 세트로 정리한 견본입니다.</p>
+      </article>
+      <article class="work">
+        <img src="images/work-3.svg" alt="로고 사용 안내 한 장" width="800" height="600" loading="lazy">
+        <h3>로고 사용 안내 한 장</h3>
+        <p>로고를 붙이는 곳과 크기를 한눈에 볼 수 있게 적었습니다.</p>
+      </article>
+    </div>
+  </section>
+  <!-- ===== 작업물 끝 ===== -->
+
+  <!-- ===== 영상 시작 (안 쓰면 이 줄부터 「영상 끝」까지 지우세요) ===== -->
+  <section class="video wrap">
+    <h2>영상</h2>
+    <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+    <div class="video-item">
+      <div class="video-frame">
+        <!-- 유튜브 주소 youtu.be/영상ID 에서 영상ID만 embed/ 뒤에 넣으세요 -->
+        <!-- 더블클릭으로 열면 영상 자리에 「오류 153」이 보입니다. 인터넷 주소에 올리면 나옵니다 -->
+        <iframe src="https://www.youtube-nocookie.com/embed/deG8ftbelz4" title="예시 영상 — 여기에 내 유튜브 주소를 넣으세요" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <p class="video-title">예시 영상 — 여기에 내 유튜브 주소를 넣으세요</p>
+    </div>
+  </section>
+  <!-- ===== 영상 끝 ===== -->
+
+  <!-- ===== 연락처 시작 (안 쓰면 이 줄부터 「연락처 끝」까지 지우세요) ===== -->
+  <section class="contact wrap">
+    <h2>연락처</h2>
+    <ul class="contact-list">
+      <!-- 카카오톡 오픈채팅: 주소를 내 오픈채팅 링크로 바꾸세요 -->
+      <li>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"></use></svg>
+        <a href="https://open.kakao.com/o/내오픈채팅주소">카카오톡 오픈채팅</a>
+      </li>
+      <li>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg>
+        <a href="mailto:mijung@example.com">mijung@example.com</a>
+      </li>
+      <li>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg>
+        <a href="https://example.com">블로그</a>
+      </li>
+      <!-- 아래 줄을 쓰려면 그 줄을 누르고 Ctrl + / 를 누르세요 (맥은 Cmd + /) -->
+      <!-- <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg><a href="tel:010-0000-0000">010-0000-0000</a></li> -->
+      <!-- <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-instagram"></use></svg><a href="https://www.instagram.com/인스타그램아이디/">인스타그램</a></li> -->
+      <!-- <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-youtube"></use></svg><a href="https://www.youtube.com/@유튜브채널">유튜브</a></li> -->
+    </ul>
+  </section>
+  <!-- ===== 연락처 끝 ===== -->
+
+  <footer class="footer">
+    <p>© 2026 최미정</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<defs>
+<pattern id="p3" width="15" height="15" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.8" fill="#FFFFFF"/></pattern>
+<pattern id="h3" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#3B82F6"/></pattern>
+</defs>
+<rect width="800" height="600" fill="#C8DCFC"/>
+<rect width="800" height="600" fill="url(#p3)"/>
+<g transform="rotate(7 480 330)">
+<rect x="330" y="170" width="300" height="230" fill="#EBF2FE" stroke="#111827" stroke-width="6"/>
+</g>
+<g transform="rotate(-4 470 340)">
+<rect x="300" y="150" width="320" height="250" fill="#FFFFFF" stroke="#111827" stroke-width="6"/>
+<rect x="335" y="185" width="250" height="180" fill="#EBF2FE"/>
+<circle cx="425" cy="255" r="30" fill="#2C62B9"/>
+<path d="M368 365c8-40 30-62 57-62s49 22 57 62Z" fill="#2C62B9"/>
+<rect x="335" y="185" width="250" height="180" fill="url(#h3)" opacity="0.35"/>
+</g>
+<path d="M640 240h120v80c0 66-33 106-60 124-27-18-60-58-60-124Z" fill="#3B82F6" stroke="#111827" stroke-width="8"/>
+<path d="m668 320 24 24 44-46" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

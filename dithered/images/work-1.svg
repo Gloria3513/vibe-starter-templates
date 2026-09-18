@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<defs>
+<pattern id="p1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="3" fill="#C8DCFC"/></pattern>
+<pattern id="p2" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#3B82F6"/></pattern>
+</defs>
+<rect width="800" height="600" fill="#EBF2FE"/>
+<rect width="800" height="600" fill="url(#p1)"/>
+<g transform="rotate(-6 275 310)">
+<rect x="110" y="140" width="330" height="340" fill="#FFFFFF" stroke="#111827" stroke-width="6"/>
+<rect x="150" y="180" width="250" height="220" fill="#C8DCFC"/>
+<circle cx="240" cy="250" r="30" fill="#2C62B9"/>
+<path d="M180 400c8-45 30-70 60-70s52 25 60 70Z" fill="#2C62B9"/>
+<circle cx="325" cy="268" r="21" fill="#3B82F6"/>
+<path d="M283 400c6-33 19-50 42-50s36 17 42 50Z" fill="#3B82F6"/>
+</g>
+<g transform="rotate(5 535 297)">
+<rect x="370" y="125" width="330" height="345" fill="#FFFFFF" stroke="#111827" stroke-width="6"/>
+<rect x="410" y="165" width="250" height="225" fill="url(#p2)"/>
+<circle cx="505" cy="245" r="30" fill="#111827"/>
+<path d="M445 390c8-45 30-70 60-70s52 25 60 70Z" fill="#111827"/>
+<circle cx="585" cy="262" r="21" fill="#2C62B9"/>
+<path d="M545 390c6-33 19-50 40-50s34 17 40 50Z" fill="#2C62B9"/>
+</g>
+<g fill="#3B82F6" opacity="0.45">
+<rect x="355" y="185" width="140" height="46" transform="rotate(-5 425 208)"/>
+<rect x="350" y="370" width="140" height="46" transform="rotate(4 420 393)"/>
+</g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+<defs>
+<pattern id="g2" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#B3B5BA"/></pattern>
+<pattern id="b2" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#3B82F6"/></pattern>
+<clipPath id="L2"><rect x="150" y="140" width="250" height="320"/></clipPath>
+<clipPath id="R2"><rect x="400" y="140" width="250" height="320"/></clipPath>
+</defs>
+<rect width="800" height="600" fill="#111827"/>
+<rect x="90" y="80" width="620" height="440" fill="#FFFFFF"/>
+<rect x="90" y="80" width="620" height="440" fill="none" stroke="#C8DCFC" stroke-width="6"/>
+<rect x="150" y="140" width="500" height="320" fill="none" stroke="#111827" stroke-width="4"/>
+<g clip-path="url(#L2)">
+<rect x="150" y="140" width="250" height="320" fill="url(#g2)"/>
+<circle cx="255" cy="260" r="44" fill="#111827"/>
+<path d="M171 460c9-62 45-96 84-96s75 34 84 96Z" fill="#111827"/>
+<circle cx="330" cy="282" r="32" fill="#4D525D"/>
+<path d="M283 460c6-42 24-64 47-64s41 22 47 64Z" fill="#4D525D"/>
+</g>
+<g clip-path="url(#R2)">
+<rect x="400" y="140" width="250" height="320" fill="url(#b2)"/>
+<circle cx="505" cy="260" r="44" fill="#2C62B9"/>
+<path d="M421 460c9-62 45-96 84-96s75 34 84 96Z" fill="#8B5CF6"/>
+<circle cx="580" cy="282" r="32" fill="#3B82F6"/>
+<path d="M533 460c6-42 24-64 47-64s41 22 47 64Z" fill="#2C62B9"/>
+</g>
+<g fill="#3B82F6">
+<circle cx="742" cy="150" r="14"/>
+<circle cx="718" cy="196" r="10" fill="#8B5CF6"/>
+<circle cx="738" cy="236" r="7" fill="#C8DCFC"/>
+</g>
+</svg>

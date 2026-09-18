@@ -1,0 +1,342 @@
+:root { --main: #00A63D; } /* 대표색은 이 한 줄만 바꾸세요 */
+/* 종이 위 터미널 — 돌 바탕에 행렬 초록, 도트 글씨와 검은 터미널 창 */
+
+/* 색 */
+:root {
+  --bg: #E7E5E4;
+  --panel: #F7F6F5;
+  --line: #D6D3D1;
+  --ink: #1C1917;
+  --muted: #423E3B;
+  --term: #101613;
+  --term-panel: #1A231E;
+  --term-line: #3A443E;
+  --term-ink: #E7E5E4;
+  --term-muted: #A8A29E;
+  --main-soft: color-mix(in srgb, var(--main) 10%, #fff);
+  --main-light: color-mix(in srgb, var(--main) 28%, #fff);
+  --main-dark: color-mix(in srgb, var(--main) 75%, #000);
+  --main-ink: color-mix(in srgb, var(--main) 40%, #000);
+  --main-bright: color-mix(in srgb, var(--main) 60%, #fff);
+}
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --main-soft: #E5F6EB;
+    --main-light: #B8E6C8;
+    --main-dark: #007D2E;
+    --main-ink: #004218;
+    --main-bright: #66C88B;
+  }
+}
+
+/* 기본 */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+@media (min-width: 720px) {
+  body { font-size: 18px; }
+}
+h1, h2, h3, .hero-tagline {
+  font-family: "Galmuri11", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+a { color: var(--main-ink); }
+:focus-visible { outline: 3px solid var(--main-dark); outline-offset: 3px; }
+
+/* 공통 폭 */
+.wrap {
+  padding-inline: max(clamp(20px, 5vw, 40px), calc((100% - 1080px) / 2));
+}
+
+/* 섹션 제목 */
+section.wrap { padding-block: clamp(64px, 8vw, 104px); }
+h2 { margin: 0 0 28px; font-size: clamp(30px, 4vw, 44px); }
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 16px;
+  background: var(--main-dark);
+}
+
+/* 첫 화면 */
+.hero {
+  display: grid;
+  justify-items: center;
+  padding-block: clamp(80px, 11vw, 152px);
+  text-align: center;
+  background: var(--main-soft);
+  border-bottom: 3px solid var(--main);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: clamp(120px, 34vw, 180px);
+  height: clamp(120px, 34vw, 180px);
+  margin-bottom: 28px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--term);
+  background-image: repeating-linear-gradient(0deg, transparent 0 4px, rgba(255, 255, 255, 0.05) 4px 5px);
+  color: var(--main-bright);
+  font-family: "Galmuri11", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: clamp(56px, 16vw, 88px);
+  line-height: 1;
+  object-fit: cover;
+}
+.hero-name {
+  margin: 0 0 20px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: var(--term);
+  color: var(--main-bright);
+  font-size: clamp(20px, 2.4vw, 24px);
+  line-height: 1.4;
+}
+.hero-name::before { content: "$ "; }
+.hero-tagline {
+  margin: 0 0 24px;
+  font-size: clamp(38px, 6.5vw, 72px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.hero-tagline::after {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.8em;
+  margin-left: 10px;
+  background: var(--main-dark);
+  vertical-align: -0.06em;
+}
+.hero-greeting {
+  max-width: 620px;
+  margin: 0 0 32px;
+  color: var(--muted);
+}
+
+/* 넓은 화면: 글은 왼쪽, 터미널 사진 자리는 오른쪽 */
+@media (min-width: 860px) {
+  .hero {
+    justify-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr repeat(4, auto) 1fr;
+    column-gap: clamp(40px, 6vw, 88px);
+    text-align: left;
+  }
+  .hero > * { grid-column: 1; }
+  .hero-name { grid-row: 2; margin: 0; }
+  .hero-tagline { grid-row: 3; margin: 0 0 26px; }
+  .hero-greeting { grid-row: 4; margin: 0 0 36px; max-width: 560px; margin-left: 0; }
+  .hero .button { grid-row: 5; justify-self: start; }
+  .hero .avatar {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    width: clamp(200px, 24vw, 300px);
+    height: clamp(200px, 24vw, 300px);
+    margin: 0;
+    font-size: clamp(96px, 12vw, 150px);
+  }
+}
+
+/* 버튼 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 34px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--main);
+  color: var(--ink);
+  font-family: "Galmuri11", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  text-decoration: none;
+  box-shadow: inset 0 -3px 0 rgba(28, 25, 23, 0.2);
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.button:hover {
+  background: var(--main-dark);
+  color: #fff;
+  box-shadow: inset 0 -2px 0 rgba(28, 25, 23, 0.28);
+}
+
+/* 아이콘 */
+.sprite { display: none; }
+.ico {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border: 1px solid var(--main-dark);
+  border-radius: 4px;
+  background: var(--main-light);
+  fill: none;
+  stroke: var(--main-ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 할 수 있는 일 */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+.card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.card:hover { border-color: var(--main-dark); background: var(--main-soft); }
+.card h3 { margin: 16px 0 8px; font-size: 1.2em; }
+.card h3::before { content: "> "; color: var(--main-dark); }
+.card p { margin: 0; color: var(--muted); }
+
+/* 경력 */
+.career-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.career-list li {
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--main-dark);
+  border-radius: 4px;
+  background: var(--panel);
+}
+.career-period {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 3px 12px;
+  border-radius: 4px;
+  background: var(--main-light);
+  color: var(--main-ink);
+  font-family: "Galmuri11", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+.career-title { margin: 0; font-size: 1.2em; }
+.career-place { margin: 6px 0 0; color: var(--muted); font-weight: 600; }
+.career-desc { margin: 6px 0 0; }
+
+/* 작업물 */
+.work-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+.work {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--panel);
+}
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--term);
+}
+.work h3 { margin: 14px 2px 6px; font-size: 1.2em; }
+.work p { margin: 0 2px 2px; color: var(--muted); }
+
+/* 영상 */
+.video-item + .video-item { margin-top: 32px; }
+.video-frame {
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  padding: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--term);
+}
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
+}
+.video-title { margin: 14px 0 0; color: var(--muted); }
+
+/* 연락처 — 터미널 창 */
+.contact {
+  background: var(--term);
+  color: var(--term-ink);
+}
+.contact h2 { color: var(--term-ink); }
+.contact h2::before { background: var(--main-bright); }
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+}
+.contact-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 10px 18px;
+  border: 1px solid var(--term-line);
+  border-radius: 4px;
+  background: var(--term-panel);
+  transition: border-color 0.2s;
+}
+.contact-list li:hover { border-color: var(--main-bright); }
+.contact-list .ico {
+  border: 0;
+  background: transparent;
+  stroke: var(--main-bright);
+}
+.contact-list a {
+  color: var(--main-bright);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.contact-list a::after { content: ""; position: absolute; inset: 0; }
+
+/* 바닥글 */
+.footer {
+  padding-block: 26px;
+  padding-inline: max(clamp(20px, 5vw, 40px), calc((100% - 1080px) / 2));
+  border-top: 1px solid var(--term-line);
+  background: var(--term);
+  color: var(--term-muted);
+  text-align: center;
+}
+.footer p { margin: 0; }
+
+/* 움직임 줄이기 */
+@media (prefers-reduced-motion: reduce) {
+  .button, .card, .contact-list li { transition: none; }
+}

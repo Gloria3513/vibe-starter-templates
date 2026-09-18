@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;800&display=swap">
+  <title>오성수 | 찾아가는 안전 교육 강사</title>
+  <meta name="description" content="작업장을 함께 걸으며 위험을 찾아 고치는 안전 교육입니다. 찾아가는 교육, 새 직원 교육, 점검표 만들기를 모았습니다.">
+  <meta property="og:title" content="오성수 | 찾아가는 안전 교육 강사">
+  <meta property="og:description" content="작업장을 함께 걸으며 위험을 찾아 고치는 안전 교육입니다. 찾아가는 교육, 새 직원 교육, 점검표 만들기를 모았습니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og.jpg">
+  <!-- 카톡·문자로 주소를 보낼 때 뜨는 그림입니다. images/og.jpg 를 가로 1200 × 세로 630 그림으로 바꾸세요 -->
+  <!-- 주소가 생기면 위 content 를 https://내주소.vercel.app/images/og.jpg 처럼 전체 주소로 바꾸세요 -->
+  <!-- 주소가 생기면 넣으세요: <link rel="canonical" href="https://내주소.vercel.app/"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 아이콘 모음 (화면에 보이지 않습니다) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-visit" viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"/><path d="M5 9.8V21h14V9.8"/><path d="M10 21v-5h4v5"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-7"/><path d="M12 14c0-4.4-3-7-8-7 0 4.6 3 7 8 7Z"/><path d="M12 12c0-3.6 2.5-6 7-6 0 3.8-2.5 6-7 6Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2Z"/><path d="M12 6v14"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.7 2.4 4.2 5.6 4.2 9s-1.5 6.6-4.2 9c-2.7-2.4-4.2-5.6-4.2-9S9.3 5.4 12 3Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.9 19.9 0 0 1-8.6-3.1 19.6 19.6 0 0 1-6-6A19.9 19.9 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.8 12.8 0 0 0 .7 2.8 2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4 12.8 12.8 0 0 0 2.8.7 2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="m10.2 9.2 4.8 2.8-4.8 2.8Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><rect x="4.5" y="4" width="15" height="17" rx="2"/><path d="M9 2.5h6v3H9z"/><path d="m9 14 2 2 4-4.5"/></symbol>
+  </svg>
+
+  <!-- ===== 첫 화면 시작 (안 쓰면 이 줄부터 「첫 화면 끝」까지 지우세요) ===== -->
+  <header class="hero wrap">
+    <div class="avatar" aria-hidden="true">오</div>
+    <!-- 사진이 있으면 위 줄을 지우고: <img class="avatar" src="images/내사진.jpg" alt="오성수 사진"> -->
+    <h1 class="hero-name">오성수</h1>
+    <p class="hero-tagline">다치지 않는 하루, 함께 만듭니다</p>
+    <p class="hero-greeting">작은 공장에서 서른 해 가까이 일하며 위험한 일을 여러 번 보았습니다. 큰 자리 강의 대신, 우리 작업장에 맞춰 함께 찾아 고치는 교육을 합니다.</p>
+    <!-- 버튼 주소: 카카오톡 오픈채팅방 → 공유 → 링크 복사 후 href 따옴표 안에 붙여 넣으세요 -->
+    <a class="button" href="https://open.kakao.com/o/내오픈채팅주소">교육 문의하기</a>
+  </header>
+  <!-- ===== 첫 화면 끝 ===== -->
+
+  <!-- ===== 할 수 있는 일 시작 (안 쓰면 이 줄부터 「할 수 있는 일 끝」까지 지우세요) ===== -->
+  <section class="skills wrap">
+    <h2>할 수 있는 일</h2>
+    <ul class="cards">
+      <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+      <li class="card">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-visit"></use></svg>
+        <h3>찾아가는 안전 교육</h3>
+        <p>작업장을 함께 걸며 위험한 자리를 찾고 먼저 고칠 일을 정합니다.</p>
+      </li>
+      <li class="card">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-book"></use></svg>
+        <h3>새 직원 교육</h3>
+        <p>안전모 쓰기부터 작업장 살피기까지 첫날 기본을 익힙니다.</p>
+      </li>
+      <li class="card">
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"></use></svg>
+        <h3>점검표 만들기</h3>
+        <p>우리 작업장에 맞는 한 장짜리 점검표를 함께 만듭니다.</p>
+      </li>
+    </ul>
+  </section>
+  <!-- ===== 할 수 있는 일 끝 ===== -->
+
+  <!-- ===== 경력 시작 (안 쓰면 이 줄부터 「경력 끝」까지 지우세요) ===== -->
+  <section class="career wrap">
+    <h2>경력</h2>
+    <ol class="career-list">
+      <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+      <li>
+        <p class="career-period">2021 – 지금</p>
+        <h3 class="career-title">찾아가는 안전 교육</h3>
+        <p class="career-place">프리랜서</p>
+        <p class="career-desc">작은 회사 교육과 점검표 만들기</p>
+      </li>
+      <li>
+        <p class="career-period">1992 – 2020</p>
+        <h3 class="career-title">공장 안전 업무</h3>
+        <p class="career-place">작은 제조 회사</p>
+        <p class="career-desc">작업장 점검과 안전 수칙 정리</p>
+      </li>
+      <li>
+        <p class="career-period">1991</p>
+        <h3 class="career-title">안전 교육 과정 수료</h3>
+      </li>
+    </ol>
+  </section>
+  <!-- ===== 경력 끝 ===== -->
+
+  <!-- ===== 작업물 시작 (안 쓰면 이 줄부터 「작업물 끝」까지 지우세요) ===== -->
+  <section class="works wrap">
+    <h2>작업물</h2>
+    <div class="work-grid">
+      <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+      <article class="work">
+        <img src="images/work-1.svg" alt="작업장 점검표 견본" width="800" height="600" loading="lazy">
+        <h3>작업장 점검표 견본</h3>
+        <p>하루 한 번 돌며 살피는 여덟 항목 점검표입니다.</p>
+      </article>
+      <article class="work">
+        <img src="images/work-2.svg" alt="새 직원 첫날 안내문" width="800" height="600" loading="lazy">
+        <h3>새 직원 첫날 안내문</h3>
+        <p>첫날 꼭 알아야 할 일을 그림과 큰 글씨로 모았습니다.</p>
+      </article>
+      <article class="work">
+        <img src="images/work-3.svg" alt="위험 찾기 연습 카드" width="800" height="600" loading="lazy">
+        <h3>위험 찾기 연습 카드</h3>
+        <p>작업장 그림에서 위험을 먼저 찾는 연습 카드입니다.</p>
+      </article>
+    </div>
+  </section>
+  <!-- ===== 작업물 끝 ===== -->
+
+  <!-- ===== 영상 시작 (안 쓰면 이 줄부터 「영상 끝」까지 지우세요) ===== -->
+  <section class="video wrap">
+    <h2>영상</h2>
+    <!-- 한 칸: 이 덩어리를 복사해 붙이면 칸이 늘어납니다 -->
+    <div class="video-item">
+      <div class="video-frame">
+        <!-- 유튜브 주소 youtu.be/영상ID 에서 영상ID만 embed/ 뒤에 넣으세요 -->
+        <!-- 더블클릭으로 열면 영상 자리에 「오류 153」이 보입니다. 인터넷 주소에 올리면 나옵니다 -->
+        <iframe src="https://www.youtube-nocookie.com/embed/deG8ftbelz4" title="예시 영상 — 여기에 내 유튜브 주소를 넣으세요" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <p class="video-title">예시 영상 — 여기에 내 유튜브 주소를 넣으세요</p>
+    </div>
+  </section>
+  <!-- ===== 영상 끝 ===== -->
+
+  <!-- ===== 연락처 시작 (안 쓰면 이 줄부터 「연락처 끝」까지 지우세요) ===== -->
+  <section class="contact wrap">
+    <h2>연락처</h2>
+    <ul class="contact-list">
+      <!-- 카카오톡 오픈채팅: 주소를 내 오픈채팅 링크로 바꾸세요 -->
+      <li>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"></use></svg>
+        <a href="https://open.kakao.com/o/내오픈채팅주소">카카오톡 오픈채팅</a>
+      </li>
+      <li>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg>
+        <a href="mailto:seongsu@example.com">seongsu@example.com</a>
+      </li>
+      <li>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg>
+        <a href="https://example.com">블로그</a>
+      </li>
+      <!-- 아래 줄을 쓰려면 그 줄을 누르고 Ctrl + / 를 누르세요 (맥은 Cmd + /) -->
+      <!-- <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg><a href="tel:010-0000-0000">010-0000-0000</a></li> -->
+      <!-- <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-instagram"></use></svg><a href="https://www.instagram.com/인스타그램아이디/">인스타그램</a></li> -->
+      <!-- <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-youtube"></use></svg><a href="https://www.youtube.com/@유튜브채널">유튜브</a></li> -->
+    </ul>
+  </section>
+  <!-- ===== 연락처 끝 ===== -->
+
+  <footer class="footer">
+    <p>© 2026 오성수</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+:root { --main: #990FFA; } /* 대표색은 이 한 줄만 바꾸세요 */
+
+:root {
+  --bg: #FFFFFF;             /* 바탕 — DESIGN.md surface */
+  --text: #111827;           /* 글자 — DESIGN.md text */
+  --text-soft: #4B5563;      /* 옅은 글자 */
+  --secondary: #E60076;      /* 보조색 — DESIGN.md, 그라데이션 끝색 */
+  --secondary-soft: color-mix(in srgb, var(--secondary) 8%, #fff); /* 연한 보조색 면 */
+  --edge: color-mix(in srgb, var(--main) 14%, #fff);   /* 옅은 선 */
+  --main-soft: color-mix(in srgb, var(--main) 10%, #fff);
+  --main-light: color-mix(in srgb, var(--main) 28%, #fff);
+  --main-dark: color-mix(in srgb, var(--main) 75%, #000);
+  --grad: linear-gradient(120deg, var(--main), var(--secondary)); /* 이 디자인의 대표 그라데이션 */
+  --lift: 0 10px 26px color-mix(in srgb, var(--main) 12%, transparent); /* 카드 그림자 */
+  --pop: 0 10px 24px color-mix(in srgb, var(--main) 30%, transparent);  /* 버튼·사진 그림자 */
+  --radius: 8px;             /* 모서리 — DESIGN.md md */
+  --radius-sm: 4px;          /* 모서리 — DESIGN.md sm */
+}
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --secondary-soft: #FDEBF4;
+    --edge: #F1DDFE;
+    --main-soft: #F5E7FF;
+    --main-light: #E2BCFE;
+    --main-dark: #730BBC;
+    --lift: 0 10px 26px rgba(17, 24, 39, 0.08);
+    --pop: 0 10px 24px rgba(17, 24, 39, 0.16);
+  }
+}
+
+/* 기본 */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+@media (min-width: 720px) {
+  body { font-size: 18px; }
+}
+h1, h2, h3, .hero-tagline {
+  font-family: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.3;
+  margin: 0;
+}
+p { margin: 0; }
+img { max-width: 100%; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+a { color: inherit; }
+
+/* 공통 폭 — 화면 끝까지 꽉 찬 섹션 안의 안쪽 여백 */
+.wrap, .footer {
+  padding-inline: max(clamp(20px, 5vw, 40px), calc((100% - 1080px) / 2));
+}
+
+/* 첫 화면 — 부드럽게 번지는 그라데이션 면 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-block: clamp(84px, 11vw, 148px);
+  background: linear-gradient(160deg, var(--main-soft), #FFFFFF 48%, var(--secondary-soft));
+}
+.hero .avatar {
+  width: clamp(120px, 30vw, 172px);
+  height: clamp(120px, 30vw, 172px);
+  border-radius: var(--radius);
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+  font-size: clamp(48px, 10vw, 72px);
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--grad);
+  box-shadow: var(--pop);
+}
+.hero-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--main-dark);
+  margin-top: clamp(28px, 4vw, 40px);
+}
+.hero-name::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--grad);
+}
+.hero-tagline {
+  font-size: clamp(38px, 6.5vw, 72px);
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--text);
+  margin-top: clamp(16px, 2.5vw, 24px);
+}
+.hero-greeting {
+  color: var(--text-soft);
+  max-width: 32em;
+  margin-inline: auto;
+  margin-top: clamp(20px, 3vw, 28px);
+}
+.hero .button { margin-top: clamp(28px, 4vw, 40px); }
+@media (min-width: 860px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr repeat(4, auto) 1fr;
+    column-gap: clamp(40px, 6vw, 88px);
+    text-align: left;
+  }
+  .hero > * { grid-column: 1; }
+  .hero-name { grid-row: 2; justify-self: start; }
+  .hero-tagline { grid-row: 3; }
+  .hero-greeting { grid-row: 4; margin-left: 0; }
+  .hero .button { grid-row: 5; justify-self: start; }
+  .hero .avatar {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    width: clamp(200px, 24vw, 300px);
+    height: clamp(200px, 24vw, 300px);
+    font-size: clamp(80px, 9vw, 120px);
+  }
+}
+
+/* 버튼 — 대표색에서 보조색으로 흐르는 면 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 32px;
+  border-radius: var(--radius);
+  background: var(--grad);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1em;
+  text-decoration: none;
+  box-shadow: var(--pop);
+}
+.button:hover {
+  background: linear-gradient(120deg, var(--main-dark), var(--secondary));
+}
+
+/* 섹션 공통 */
+section.wrap {
+  padding-block: clamp(64px, 8vw, 104px);
+}
+section.wrap h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+section.wrap h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 6px;
+  margin-top: 14px;
+  border-radius: 3px;
+  background: var(--grad);
+}
+/* 색 면 — 섹션마다 따로 칠한다(한 섹션을 지워도 다른 섹션이 영향받지 않게) */
+section.career.wrap {
+  background: linear-gradient(180deg, var(--main-soft), #FFFFFF);
+}
+section.video.wrap {
+  background: linear-gradient(180deg, var(--secondary-soft), #FFFFFF);
+}
+
+/* 칸 격자 — 칸 수가 달라져도 폭이 이상하게 늘지 않게 */
+.cards, .career-list, .work-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.card, .career-list li, .work, .video-item {
+  background: #FFFFFF;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  box-shadow: var(--lift);
+}
+
+/* 할 수 있는 일 */
+.cards .card {
+  padding: clamp(24px, 3.5vw, 36px);
+}
+.card .ico {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: var(--grad);
+  border-radius: var(--radius-sm);
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.card h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 16px;
+}
+.card p {
+  color: var(--text-soft);
+  margin-top: 8px;
+}
+
+/* 경력 */
+.career-list li {
+  padding: clamp(24px, 3.5vw, 32px);
+}
+.career-period {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--main-light);
+  color: var(--main-dark);
+  font-size: 0.85em;
+  font-weight: 600;
+}
+.career-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 14px;
+}
+.career-place {
+  font-size: 0.9em;
+  color: var(--text-soft);
+  margin-top: 6px;
+}
+.career-desc {
+  color: var(--text-soft);
+  margin-top: 8px;
+}
+
+/* 작업물 */
+.work {
+  padding: 14px;
+}
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: var(--main-soft);
+}
+.work h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 16px 8px 0;
+}
+.work p {
+  color: var(--text-soft);
+  margin: 6px 8px 8px;
+}
+
+/* 영상 */
+.video-item + .video-item { margin-top: clamp(32px, 5vw, 48px); }
+.video-item {
+  padding: 14px;
+}
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--main-soft);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-title {
+  color: var(--text-soft);
+  margin: 12px 8px 6px;
+}
+
+/* 연락처 — 칸 하나가 통째로 눌리는 면 */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: clamp(12px, 2vw, 16px);
+}
+.contact-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, var(--main-soft), var(--secondary-soft));
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+}
+.contact-list li:hover {
+  border-color: var(--main-light);
+}
+.contact-list .ico {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: var(--main-dark);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.contact-list a {
+  font-weight: 600;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+.contact-list a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.contact-list a:hover { color: var(--main-dark); }
+
+/* 바닥글 */
+.footer {
+  border-top: 1px solid var(--edge);
+  padding-block: clamp(32px, 5vw, 48px);
+}
+.footer p {
+  font-size: 0.9em;
+  color: var(--text-soft);
+}
+
+/* 포커스 */
+a:focus-visible, .button:focus-visible {
+  outline: 3px solid var(--main-dark);
+  outline-offset: 3px;
+}
+
+/* 움직임 줄이기 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

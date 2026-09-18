@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <g id="f">
+      <ellipse cx="0" cy="14" rx="27" ry="47"/>
+      <circle cx="-21" cy="-44" r="11"/>
+      <circle cx="0" cy="-56" r="10"/>
+      <circle cx="19" cy="-51" r="9"/>
+      <circle cx="31" cy="-38" r="8"/>
+    </g>
+  </defs>
+  <rect width="800" height="600" fill="#FBE9F1"/>
+  <rect x="52" y="48" width="696" height="504" rx="28" fill="#FFFFFF" stroke="#111827" stroke-width="6"/>
+  <use href="#f" transform="translate(180 470) rotate(-18) scale(1.15)" fill="#db2777"/>
+  <use href="#f" transform="translate(330 405) rotate(8) scale(1.15)" fill="#2563eb"/>
+  <use href="#f" transform="translate(420 290) rotate(-10) scale(1.15)" fill="#db2777"/>
+  <use href="#f" transform="translate(575 250) rotate(14) scale(1.15)" fill="#2563eb"/>
+  <use href="#f" transform="translate(650 130) rotate(-6) scale(1.15)" fill="#db2777"/>
+</svg>

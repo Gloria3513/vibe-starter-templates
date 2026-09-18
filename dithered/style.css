@@ -1,0 +1,406 @@
+:root { --main: #3B82F6; } /* 대표색은 이 한 줄만 바꾸세요 */
+
+:root {
+  --bg: #FFFFFF;             /* 흰 바탕 (DESIGN.md surface) */
+  --text: #111827;           /* 잉크색 (DESIGN.md text) */
+  --text-soft: color-mix(in srgb, var(--text) 75%, #fff);
+  --line: color-mix(in srgb, var(--text) 14%, #fff);
+  --line-strong: color-mix(in srgb, var(--text) 32%, #fff);
+  --dot: color-mix(in srgb, var(--text) 8%, #fff);
+  --radius-sm: 4px;          /* DESIGN.md rounded */
+  --radius: 8px;
+  /* 점 무늬 — 이 디자인의 결. 점 밀도로 명암을 만든다 */
+  --dots-soft: radial-gradient(circle, var(--dot) 1.4px, transparent 1.7px);
+  --dots-deep: radial-gradient(circle, var(--line-strong) 1.4px, transparent 1.7px);
+  --dots-main: radial-gradient(circle, var(--main-light) 1.5px, transparent 1.8px);
+  --main-soft: color-mix(in srgb, var(--main) 10%, #fff);
+  --main-light: color-mix(in srgb, var(--main) 28%, #fff);
+  --main-dark: color-mix(in srgb, var(--main) 75%, #000);
+}
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --text-soft: #4D525D;
+    --line: #DEDFE1;
+    --line-strong: #B3B5BA;
+    --dot: #EEEFF0;
+    --main-soft: #EBF2FE;
+    --main-light: #C8DCFC;
+    --main-dark: #2C62B9;
+  }
+}
+
+/* 기본 */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+@media (min-width: 720px) {
+  body { font-size: 18px; }
+}
+h1, h2, h3, .hero-tagline {
+  font-family: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.25;
+  margin: 0;
+}
+h1, h2, .hero-tagline { font-weight: 800; }
+h3 { font-weight: 600; }
+p { margin: 0; }
+img { max-width: 100%; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+a { color: inherit; }
+
+/* 공통 폭 — 섹션은 화면 끝까지, 안은 가운데로 */
+.wrap, .footer {
+  padding-inline: max(clamp(20px, 5vw, 40px), calc((100% - 1080px) / 2));
+}
+
+/* 첫 화면 — 점 인쇄 위에 놓인 사진 한 장 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-block: clamp(88px, 11vw, 152px);
+  background-color: var(--bg);
+  background-image: var(--dots-soft);
+  background-size: 14px 14px;
+  border-bottom: 2px dotted var(--line-strong);
+}
+.hero .avatar {
+  width: clamp(120px, 30vw, 176px);
+  height: clamp(120px, 30vw, 176px);
+  border: 2px solid var(--text);
+  border-radius: var(--radius);
+  object-fit: cover;
+  background-color: var(--main-soft);
+  background-image: var(--dots-main);
+  background-size: 8px 8px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: clamp(52px, 12vw, 76px);
+  color: var(--text);
+}
+.hero-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(28px, 4vw, 40px);
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.hero-name::before {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  background: var(--main);
+}
+.hero-tagline {
+  margin-top: clamp(16px, 2.5vw, 24px);
+  font-size: clamp(38px, 6.5vw, 72px);
+  line-height: 1.2;
+  color: var(--text);
+}
+.hero-greeting {
+  max-width: 36em;
+  margin-top: clamp(20px, 3vw, 28px);
+  color: var(--text-soft);
+}
+.hero .button { margin-top: clamp(28px, 4vw, 40px); }
+@media (min-width: 860px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr repeat(4, auto) 1fr;
+    column-gap: clamp(40px, 6vw, 88px);
+    text-align: left;
+  }
+  .hero > * { grid-column: 1; }
+  .hero-name { grid-row: 2; justify-self: start; }
+  .hero-tagline { grid-row: 3; }
+  .hero-greeting { grid-row: 4; margin-left: 0; }
+  .hero .button { grid-row: 5; justify-self: start; }
+  .hero .avatar {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    width: clamp(200px, 24vw, 300px);
+    height: clamp(200px, 24vw, 300px);
+    font-size: clamp(84px, 10vw, 128px);
+  }
+}
+
+/* 버튼 — 대표색 면에 잉크 글자, 누르면 진한 대표색에 흰 글자 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 34px;
+  border-radius: var(--radius);
+  background: var(--main);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.05em;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.button:hover {
+  background: var(--main-dark);
+  color: #FFFFFF;
+}
+
+/* 섹션 공통 — 제목 아래 점이 옅어지는 디더 띠 */
+section.wrap {
+  padding-block: clamp(64px, 8vw, 104px);
+}
+section.wrap h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+section.wrap h2::after {
+  content: "";
+  display: block;
+  width: clamp(96px, 14vw, 150px);
+  height: 12px;
+  margin-top: 16px;
+  background-image: radial-gradient(circle, var(--main) 1.5px, transparent 1.8px);
+  background-size: 8px 8px;
+  -webkit-mask-image: linear-gradient(90deg, #000 35%, transparent);
+  mask-image: linear-gradient(90deg, #000 35%, transparent);
+}
+
+/* 할 수 있는 일 — 평면 카드, 점 무늬 아이콘 칩 */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.card {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3.5vw, 32px);
+  transition: border-color 0.15s ease;
+}
+.card:hover { border-color: var(--main); }
+.card .ico {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  background-color: var(--main-soft);
+  background-image: var(--dots-main);
+  background-size: 7px 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  fill: none;
+  stroke: var(--main-dark);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.card h3 {
+  font-size: 1.25em;
+  margin-top: 18px;
+}
+.card p {
+  margin-top: 8px;
+  color: var(--text-soft);
+}
+
+/* 경력 — 연한 면 위에 점선으로 잇는 장부표 */
+.career {
+  background-color: var(--main-soft);
+  background-image: var(--dots-deep);
+  background-size: 14px 14px;
+}
+.career-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 860px;
+}
+.career-list li {
+  display: grid;
+  gap: 10px;
+  padding-block: clamp(22px, 3.5vw, 32px);
+}
+.career-list li + li { border-top: 2px dotted var(--line-strong); }
+.career-period {
+  justify-self: start;
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--bg);
+  border: 2px dotted var(--main-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--main-dark);
+  white-space: nowrap;
+}
+.career-title { font-size: 1.2em; }
+.career-place {
+  margin-top: 4px;
+  font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+}
+.career-desc {
+  margin-top: 8px;
+  color: var(--text-soft);
+}
+@media (min-width: 560px) {
+  .career-list li {
+    grid-template-columns: minmax(110px, auto) minmax(0, 1fr);
+    column-gap: clamp(18px, 3vw, 32px);
+    align-items: start;
+  }
+}
+
+/* 작업물 */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.work {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 12px;
+  transition: border-color 0.15s ease;
+}
+.work:hover { border-color: var(--main); }
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+.work h3 {
+  font-size: 1.25em;
+  margin: 16px 6px 0;
+}
+.work p {
+  margin: 8px 6px 10px;
+  color: var(--text-soft);
+}
+
+/* 영상 */
+.video-item + .video-item { margin-top: clamp(32px, 5vw, 48px); }
+.video-item {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-title {
+  margin: 12px 6px 6px;
+  color: var(--text-soft);
+}
+
+/* 연락처 — 잉크색 면 위에 흰 점. 칸 하나가 누름면 하나 */
+.contact {
+  background-color: var(--text);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1.4px, transparent 1.7px);
+  background-size: 14px 14px;
+  color: #FFFFFF;
+}
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(12px, 2vw, 16px);
+}
+.contact-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius-sm);
+}
+.contact-list .ico {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.contact-list a {
+  font-weight: 600;
+  text-decoration: underline dotted;
+  text-decoration-color: var(--main-light);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: color 0.15s ease;
+}
+.contact-list a:hover {
+  color: var(--main-light);
+  text-decoration-color: var(--main-light);
+}
+.contact-list a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* 바닥글 */
+.footer {
+  border-top: 2px dotted var(--line-strong);
+  padding-block: clamp(32px, 5vw, 48px);
+}
+.footer p {
+  font-size: 0.9em;
+  color: var(--text-soft);
+}
+
+/* 포커스 */
+a:focus-visible, .button:focus-visible {
+  outline: 3px solid var(--main-dark);
+  outline-offset: 3px;
+}
+.contact a:focus-visible { outline-color: var(--main-light); }
+
+/* 움직임 줄이기 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}

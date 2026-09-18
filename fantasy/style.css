@@ -1,0 +1,412 @@
+:root { --main: #0250CC; } /* 대표색은 이 한 줄만 바꾸세요 */
+
+:root {
+  --bg: #FFFFFF;             /* 바탕 */
+  --card: #FFFFFF;           /* 카드 면 */
+  --text: #111827;           /* 글자 */
+  --text-soft: color-mix(in srgb, var(--text) 72%, #fff);
+  --gold: #FDC800;           /* 보조 강조 노랑 */
+  --line: color-mix(in srgb, var(--main) 20%, #fff);
+  --radius: 8px;
+  --radius-sm: 4px;
+  --shadow: 0 10px 26px color-mix(in srgb, var(--main) 14%, transparent);
+  --main-soft: color-mix(in srgb, var(--main) 10%, #fff);
+  --main-light: color-mix(in srgb, var(--main) 28%, #fff);
+  --main-dark: color-mix(in srgb, var(--main) 75%, #000);
+}
+@supports not (color: color-mix(in srgb, red, blue)) {
+  :root {
+    --text-soft: #545964;
+    --line: #CCDCF5;
+    --shadow: 0 10px 26px rgba(2, 80, 204, 0.14);
+    --main-soft: #E6EEFA;
+    --main-light: #B8CEF1;
+    --main-dark: #023C99;
+  }
+}
+
+/* 기본 */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+@media (min-width: 720px) {
+  body { font-size: 18px; }
+}
+h1, h2, h3, .hero-tagline {
+  font-family: "Black Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0;
+}
+p { margin: 0; }
+img { max-width: 100%; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+a { color: inherit; }
+
+/* 공통 폭 — 화면 끝까지 꽉 찬 섹션 안의 안쪽 여백 */
+.wrap, .footer {
+  padding-inline: max(clamp(20px, 5vw, 40px), calc((100% - 1080px) / 2));
+}
+
+/* 첫 화면 — 게임판 격자 위 이름판 */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(88px, 11vw, 152px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--main-soft) 2px, transparent 2px),
+    linear-gradient(90deg, var(--main-soft) 2px, transparent 2px);
+  background-size: 44px 44px;
+}
+.hero::before, .hero::after {
+  content: "";
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  transform: rotate(45deg);
+}
+.hero::before {
+  width: clamp(96px, 15vw, 170px);
+  background: var(--gold);
+  top: -64px;
+  right: -64px;
+}
+.hero::after {
+  width: clamp(72px, 11vw, 128px);
+  background: var(--main-light);
+  bottom: -56px;
+  left: -56px;
+}
+.hero > * { position: relative; }
+.hero .avatar {
+  width: clamp(120px, 30vw, 172px);
+  height: clamp(120px, 30vw, 172px);
+  border-radius: var(--radius);
+  object-fit: cover;
+  background: var(--main-light);
+  border: 3px solid var(--main);
+  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+  font-family: "Black Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: clamp(48px, 10vw, 72px);
+  color: var(--text);
+}
+.hero-name {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(20px, 2.4vw, 24px);
+  margin-top: clamp(28px, 4vw, 40px);
+  padding: 8px 22px;
+  background: var(--main);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+.hero-tagline {
+  font-size: clamp(38px, 6.5vw, 72px);
+  line-height: 1.2;
+  color: var(--text);
+  margin-top: clamp(16px, 2.5vw, 24px);
+}
+.hero-greeting {
+  color: var(--text-soft);
+  max-width: 30em;
+  margin-inline: auto;
+  margin-top: clamp(20px, 3vw, 28px);
+}
+.hero .button { margin-top: clamp(28px, 4vw, 40px); }
+@media (min-width: 860px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr repeat(4, auto) 1fr;
+    column-gap: clamp(40px, 6vw, 88px);
+    text-align: left;
+  }
+  .hero > * { grid-column: 1; }
+  .hero-name { grid-row: 2; justify-self: start; }
+  .hero-tagline { grid-row: 3; }
+  .hero-greeting { grid-row: 4; margin-left: 0; }
+  .hero .button { grid-row: 5; justify-self: start; }
+  .hero .avatar {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+    width: clamp(200px, 24vw, 300px);
+    height: clamp(200px, 24vw, 300px);
+    font-size: clamp(80px, 9vw, 120px);
+  }
+}
+
+/* 버튼 — 눌러 볼 것 같은 두꺼운 남색 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 36px;
+  background: var(--main);
+  color: #FFFFFF;
+  font-family: "Black Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 1.05em;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 2px solid var(--main-dark);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 0 var(--main-dark);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.button:hover {
+  background: var(--main-dark);
+  color: #FFFFFF;
+}
+
+/* 섹션 공통 */
+section.wrap {
+  padding-block: clamp(64px, 8vw, 104px);
+}
+section.wrap h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 400;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+section.wrap h2::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-top: 16px;
+  background: var(--main);
+  border-radius: 2px;
+  box-shadow: 16px 0 0 var(--gold), 32px 0 0 var(--main-light);
+}
+.career { background: var(--main-soft); }
+.video { background: var(--main-soft); }
+
+/* 할 수 있는 일 — 아이템 칸이 어울린 카드 */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.card {
+  background: var(--card);
+  border: 2px solid var(--main-light);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: var(--shadow);
+}
+.card .ico {
+  box-sizing: content-box;
+  width: 28px;
+  height: 28px;
+  padding: 12px;
+  background: var(--main-soft);
+  border: 2px solid var(--main-light);
+  border-radius: var(--radius-sm);
+  fill: none;
+  stroke: var(--main-dark);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.card h3 {
+  font-size: 1.25em;
+  margin-top: 18px;
+}
+.card p {
+  color: var(--text-soft);
+  margin-top: 8px;
+}
+
+/* 경력 — 퀘스트 기록처럼 한 줄씩 */
+.career-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(16px, 2.5vw, 24px);
+  max-width: 760px;
+}
+.career-list li {
+  position: relative;
+  background: var(--card);
+  border: 2px solid var(--main-light);
+  border-radius: var(--radius);
+  padding: clamp(22px, 3vw, 30px) clamp(22px, 3vw, 30px) clamp(22px, 3vw, 30px) 32px;
+  box-shadow: var(--shadow);
+}
+.career-list li::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 18px;
+  bottom: 18px;
+  width: 6px;
+  background: var(--gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.career-period {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--gold);
+  color: var(--text);
+  font-size: 0.85em;
+  font-weight: 600;
+}
+.career-title {
+  font-size: 1.2em;
+  margin-top: 14px;
+}
+.career-place {
+  font-size: 0.9em;
+  color: var(--text-soft);
+  margin-top: 6px;
+}
+.career-desc {
+  color: var(--text-soft);
+  margin-top: 8px;
+}
+
+/* 작업물 */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.work {
+  background: var(--card);
+  border: 2px solid var(--main-light);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+.work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--main-soft);
+}
+.work h3 {
+  font-size: 1.25em;
+  margin: 16px 8px 0;
+}
+.work p {
+  color: var(--text-soft);
+  margin: 6px 8px 8px;
+}
+
+/* 영상 */
+.video-item + .video-item { margin-top: clamp(32px, 5vw, 48px); }
+.video-item {
+  background: var(--card);
+  border: 2px solid var(--main-light);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--main-soft);
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-title {
+  color: var(--text-soft);
+  margin: 12px 8px 6px;
+}
+
+/* 연락처 — 칸 하나가 누름면 하나 */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: clamp(12px, 2vw, 16px);
+}
+.contact-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 12px 18px;
+  background: var(--card);
+  border: 2px solid var(--main-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.contact-list .ico {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: var(--main-dark);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.contact-list a {
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+.contact-list a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.contact-list a:hover { color: var(--main-dark); }
+
+/* 바닥글 — 진한 남색 띠 */
+.footer {
+  background: var(--text);
+  color: #FFFFFF;
+  border-top: 4px solid var(--gold);
+  padding-block: clamp(32px, 5vw, 48px);
+}
+.footer p {
+  font-size: 0.9em;
+}
+
+/* 포커스 */
+a:focus-visible, .button:focus-visible {
+  outline: 3px solid var(--main-dark);
+  outline-offset: 3px;
+}
+
+/* 움직임 줄이기 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
